@@ -11,6 +11,82 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+// const express = require('express');
+// const request = require('request');
+// const app = express();
+// app.use('/', function(req, res) {
+//     const url = 'http://192.168.191.4:8080' + req.url;
+//     req.pipe(request(url)).pipe(res);
+//     req.pipe(request.post(url, {form:req.body})).pipe(res);
+// });
+// app.listen(process.env.PORT || 3001);
+// var express = require("express");
+// var http = require("http");
+// var app = express();
+
+
+// app.get('/',function(req,res){
+//     console.log("hello express");
+//     res.send("hello express");
+// });
+
+
+// app.get('/add',function(req,res){
+//     console.log("hello express add");
+//     var obj = {
+//       a:'123',
+//       b:[1,2,3]
+//     }
+//     obj = JSON.stringify(obj)
+//     res.send(obj);
+//     var options = {
+//         host:'192.168.191.4',
+//         port:8080,
+//         path:'/add',
+//         method:'get'
+//     }
+//     var requestServer = http.request(options,function(reqSer,resSer){
+//         console.log('STATUS: ' + reqSer.statusCode); 
+//         console.log('HEADERS: ' + JSON.stringify(reqSer.headers)); 
+//         reqSer.setEncoding('utf8'); 
+//         reqSer.on('data', function (chunk) { 
+//             console.log('BODY: ' + chunk); 
+//             res.writeHead(200, {"Content-Type": "text/plain"});  
+//             res.write(chunk);
+//             res.end();  
+//         }); 
+//     });
+//     requestServer.on('error', function (e) { 
+//         console.log('problem with request: ' + e.message); 
+//     });
+//     requestServer.end();
+// });
+
+// var server = app.listen(8888, function () {
+//   var host = server.address().address
+//   var port = server.address().port
+//   console.log("应用实例，访问地址为 http://%s:%s", host, port)
+// })
+// const express = require('express');
+// const proxy = require('http-proxy-middleware');//引入代理中间件
+// const app = express();
+// app.use(express.static('public'));
+//app.use(express.static('client'));
+ 
+// Add middleware for http proxying
+// const apiProxy = proxy('/', { target: 'http://192.168.191.4:8080',changeOrigin: true });//将服务器代理到localhost:8080端口上[本地服务器为localhost:3000]
+// app.use('/api/*', apiProxy);//api子目录下的都是用代理
+ 
+// Render your site
+// app.get('/index.htm', function(req,res){
+//      res.sendFile(__dirname+'/src/index.html');
+// });
+ 
+ 
+ 
+// app.listen(8080, () => {
+//   console.log('Listening on: http://localhost:8080');
+// });
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
