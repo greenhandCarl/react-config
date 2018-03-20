@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import './addTodo.scss';
+// import './addTodo.scss';
+import styles from './test.css'
 
 export default class AddTodo extends Component {
   render() {
     return (
-      <div className="add_input">
+      <div className={styles.add_input}>
         <input type='text' ref='input' />
-        <button className="btn" onClick={(e) => this.handleClick(e)}>
+        <button className={styles.btn} onClick={(e) => this.handleClick(e)}>
           Add
         </button>
       </div>
