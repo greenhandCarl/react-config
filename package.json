@@ -1,76 +1,126 @@
 {
-  "name": "todomvc",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Carl <5112525@qq.com>",
+  "name": "myapp",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "e2e": "node test/e2e/runner.js",
-    "test": "npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/e2e/specs"
-  },
   "dependencies": {
-    "vue": "^2.3.3",
-    "vue-router": "^2.6.0"
+    "antd": "^3.3.1",
+    "autoprefixer": "7.1.2",
+    "babel-core": "6.25.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react-app": "^3.0.3",
+    "babel-runtime": "6.26.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "1.1.3",
+    "css-loader": "0.28.4",
+    "dotenv": "4.0.0",
+    "eslint": "4.4.1",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.35.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "7.1.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "3.0.0",
+    "file-loader": "0.11.2",
+    "fs-extra": "3.0.1",
+    "html-webpack-plugin": "2.29.0",
+    "http-proxy-middleware": "^0.17.4",
+    "jest": "20.0.4",
+    "node-sass": "^4.5.3",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.6",
+    "promise": "8.0.1",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.2",
+    "react-dev-utils": "^4.1.0",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.0.10",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "0.18.2",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "url-loader": "0.5.9",
+    "webpack": "3.5.1",
+    "webpack-dev-server": "2.8.2",
+    "webpack-manifest-plugin": "1.2.1",
+    "whatwg-fetch": "2.0.3"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "react-app",
+      "standard",
+      "standard-react"
+    ]
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.2",
-    "babel-core": "^6.22.1",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-env": "^1.3.2",
-    "babel-preset-stage-2": "^6.22.0",
-    "babel-register": "^6.22.0",
-    "chalk": "^2.0.1",
-    "connect-history-api-fallback": "^1.3.0",
-    "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.28.0",
-    "cssnano": "^3.10.0",
-    "eslint": "^3.19.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-html": "^3.0.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "eventsource-polyfill": "^0.9.6",
-    "express": "^4.14.1",
-    "extract-text-webpack-plugin": "^2.0.0",
-    "file-loader": "^0.11.1",
-    "friendly-errors-webpack-plugin": "^1.1.3",
-    "html-webpack-plugin": "^2.28.0",
-    "http-proxy-middleware": "^0.17.3",
-    "webpack-bundle-analyzer": "^2.2.1",
-    "chromedriver": "^2.27.2",
-    "cross-spawn": "^5.0.1",
-    "nightwatch": "^0.9.12",
-    "selenium-server": "^3.0.1",
-    "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
-    "opn": "^5.1.0",
-    "optimize-css-assets-webpack-plugin": "^2.0.0",
-    "ora": "^1.2.0",
-    "rimraf": "^2.6.0",
-    "url-loader": "^0.5.8",
-    "vue-loader": "^12.1.0",
-    "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.3.3",
-    "webpack": "^2.6.1",
-    "webpack-dev-middleware": "^1.10.0",
-    "webpack-hot-middleware": "^2.18.0",
-    "webpack-merge": "^4.1.0"
+    "babel-plugin-import": "^1.6.7",
+    "eslint-config-standard": "^10.2.1",
+    "prop-types": "^15.5.10"
   },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3000",
+      "changeOrigin": true,
+      "secure": false,
+      "pathRewrite": {
+        "^api": "/api"
+      }
+    }
+  }
 }
