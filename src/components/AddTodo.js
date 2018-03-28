@@ -1,9 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 // import './addTodo.scss';
 import styles from './test.css'
 
 export default class AddTodo extends Component {
-  render() {
+  static propTypes = {
+    onAddClick: PropTypes.func
+  }
+  render () {
     return (
       <div className={styles.add_input}>
         <input type='text' ref='input' />
@@ -14,14 +18,10 @@ export default class AddTodo extends Component {
     )
   }
 
-  handleClick(e) {
+  handleClick (e) {
     const node = this.refs.input
     const text = node.value.trim()
     this.props.onAddClick(text)
     node.value = ''
   }
-}
-
-AddTodo.propTypes = {
-  onAddClick: PropTypes.func.isRequired
 }

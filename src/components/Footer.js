@@ -1,14 +1,19 @@
-import React, { Component, PropTypes } from 'react';
-import "./footer.scss"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import './footer.scss'
 
 export default class Footer extends Component {
-  renderFilter(filter, name) {
+  static propTypes = {
+    filter: PropTypes.string,
+    onFilterChange: PropTypes.func
+  }
+  renderFilter (filter, name) {
     if (filter === this.props.filter) {
       return name
     }
 
     return (
-      <a href='#' onClick={e => {
+      <a href='' onClick={e => {
         e.preventDefault()
         this.props.onFilterChange(filter)
       }}>
@@ -17,9 +22,9 @@ export default class Footer extends Component {
     )
   }
 
-  render() {
+  render () {
     return (
-      <p className="footer_p">
+      <p className='footer_p'>
         Show:
         {' '}
         {this.renderFilter('SHOW_ALL', 'All')}
@@ -31,13 +36,4 @@ export default class Footer extends Component {
       </p>
     )
   }
-}
-
-Footer.propTypes = {
-  onFilterChange: PropTypes.func.isRequired,
-  filter: PropTypes.oneOf([
-    'SHOW_ALL',
-    'SHOW_COMPLETED',
-    'SHOW_ACTIVE'
-  ]).isRequired
 }

@@ -1,22 +1,27 @@
-import React , { Component , PropTypes } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-
-export default class Todo extends Component{
-    render(){
-        return (
-            <li
-                onClick={this.props.onClick}
-                style={{
-                    textDecoration:this.props.completed?'line-through':'none',
-                    cursor:this.props.completed?'default':'pointer',
-                    listStyle:'none'
-                }}
-                className='list_oneline'
-            >
-                {this.props.text}
-            </li>
-        )
-    }
+export default class Todo extends Component {
+  static propTypes = {
+    onClick: PropTypes.func,
+    text: PropTypes.string,
+    completed: PropTypes.bool
+  }
+  render () {
+    return (
+      <li
+        onClick={this.props.onClick}
+        style={{
+          textDecoration: this.props.completed ? 'line-through' : 'none',
+          cursor: this.props.completed ? 'default' : 'pointer',
+          listStyle: 'none'
+        }}
+        className='list_oneline'
+      >
+        {this.props.text}
+      </li>
+    )
+  }
 }
 
 Todo.propTypes = {

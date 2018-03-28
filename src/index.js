@@ -5,12 +5,12 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 import TodoApp from './reducers'
 
-let store = createStore( TodoApp )
+let store = createStore(TodoApp)
 const rootElement = document.getElementById('root')
 
 render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    rootElement
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
 )
